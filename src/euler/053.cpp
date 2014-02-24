@@ -1,5 +1,6 @@
 #include "euler.h"
 #include "util/range.h"
+#include <array>
 #include <gmpxx.h>
 using namespace util;
 using namespace math;
