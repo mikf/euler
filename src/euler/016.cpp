@@ -1,10 +1,6 @@
 #include "euler.h"
 #include "util/sum.h"
-#include "util/map.h"
-#include "util/range.h"
 #include "math/digits.h"
-#include <cstdint>
-#include <vector>
 #include <gmpxx.h>
 using namespace util;
 using namespace math;
@@ -18,7 +14,7 @@ std::string euler016()
     mpz_ui_pow_ui(num.get_mpz_t(), 2, 1000);
 
     return std::to_string(
-        sum( map(num.get_str(), to_digits()) )
+        sum(digits(num))
     );
 }
 
