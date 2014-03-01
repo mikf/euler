@@ -1,16 +1,11 @@
 #ifndef MATH_TRIANGLE_NUMBERS_H
 #define MATH_TRIANGLE_NUMBERS_H
 
-#include <vector>
 #include <iterator>
 #include <cstdint>
 
 namespace math
 {
-
-class prime_iterator;
-class prime_container;
-
 
 typedef std::uint32_t triangle_t;
 
@@ -20,20 +15,20 @@ class triangle_iterator
 public:
     typedef triangle_t value_type;
 
-    constexpr explicit triangle_iterator(triangle_t value)
+    constexpr inline explicit triangle_iterator(triangle_t value)
         : value_(value), step_(1)
     {}
 
-    constexpr bool operator == (const triangle_iterator & other) const
+    constexpr inline bool operator == (const triangle_iterator & other) const
     { return value_ == other.value_; }
 
-    constexpr bool operator != (const triangle_iterator & other) const
+    constexpr inline bool operator != (const triangle_iterator & other) const
     { return !(*this == other); }
 
-    constexpr value_type operator * () const
+    constexpr inline value_type operator * () const
     { return value_; }
 
-    void operator ++ ()
+    inline void operator ++ ()
     {
         ++step_;
         value_ += step_;
@@ -51,17 +46,17 @@ public:
     typedef triangle_iterator iterator;
     typedef triangle_iterator const_iterator;
 
-    constexpr explicit triangle_container(){}
+    constexpr inline explicit triangle_container(){}
 
-    iterator begin() const { return iterator(1); }
-    iterator end()   const { return iterator(0); }
+    constexpr inline iterator begin() const { return iterator(1); }
+    constexpr inline iterator end()   const { return iterator(0); }
 };
 
 
 
-constexpr triangle_container triangle()
+constexpr inline triangle_container triangle()
 {
-    return triangle_container();
+    return {};
 }
 
 }
